@@ -1,0 +1,61 @@
+proc InsultGenerator() {
+	string $insults[] = {"Yo mama SO fat!", "your as smart as anthony" , "Twatmuffin"};
+	
+	int $size = `size($insults)`;
+	float $randNum= `rand $size`;
+	int $index = `floor $randNum`;
+	
+	print ($insults[$index]);
+	
+	
+	}
+	
+proc ComplimentGenerator(string $name, int $age) {
+	string $compliments[] = {"you're so lovely.","nice hair.", "Do you work out often"};
+	
+	$age -=7;
+	
+	int $size = `size($compliments)`;
+	float $randNum= `rand $size`;
+	int $index = `floor $randNum`;
+	
+	
+	 print ($name + ", " +$compliments[$index] + "you dont look a day over " + $age + "!");
+	 
+	 ComplimentGenerator();
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 {
+
+string $names = {"Bill", "Mary", "Jonathan"};
+string $fruits = {"Apples", "Oranges", "Raspberry"};
+string $veggies = {"Carrots", "Calery", "Tomato"};
+
+
+
+for($i=0; $i<size($names); $i++) {
+	print ($names[$i]);
+}
+
+proc PrintArray() {
+	for($i=0; $i<size($names); $i++) {
+	print ($names[$i]);
+	}
+
+}
+
+}

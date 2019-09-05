@@ -1,0 +1,12 @@
+string $tempArray[];
+string $obj;
+string $node;
+$tempArray= `polyCylinder`;
+$obj = $tempArray[0];
+$node = $tempArray[1];
+
+$obj=`rename $obj "Pyramid"`;
+
+move -ws`rand(25)`.5 `rand(25)`$obj;
+
+setAttr ($node + ".subdivisionsAxis") `rand 3 5 `;
