@@ -1,12 +1,52 @@
-string $tempArray[];
-string $obj;
-string $node;
-$tempArray= `polyCylinder`;
-$obj = $tempArray[0];
-$node = $tempArray[1];
 
-$obj=`rename $obj "Pyramid"`;
 
-move -ws`rand(25)`.5 `rand(25)`$obj;
 
-setAttr ($node + ".subdivisionsAxis") `rand 3 5 `;
+proc test(int $Dup, float $Xmin, float $Xmax, float $Ymin, float $Ymax, float $Zmin, float $Zmax, float $Aximin, float $AxiMax) 
+{
+
+
+	string $tempArray[];
+	string $obj;
+	string $node;
+
+	string $sels[] = `ls -selection`;
+	string $seList[];
+
+	$tempArray= `polyCylinder`;
+	$obj = $tempArray[0];
+	//$node = $tempArray[1];
+
+
+
+	if (size($sels) > 0) 
+	{
+		$seList[size($seList)] = $sels[0];
+
+		for( $i=0; $i<$Dup; $i++ )
+		{
+			$Xaxis = `rand $Xmin $Xmax`;
+			$Zaxis = `rand $Zmin $Zmax`;
+			$Yrotation =  `rand  $Ymin $Ymax`;
+			//setAttr ($node + ".subdivisionsAxis") `rand $Aximin $AxiMax`;
+			
+			$sels = `duplicate -rr ($seList[size($seList) -1])`;
+			$seList[size($seList)] = $sels[0];
+			move -ws $Xaxis $Zaxis;
+			rotate -os $Yrotation;
+		}
+			polyUnite $seList;
+			DeleteHistory;
+			rename "Pyramid";
+	}
+			
+	else
+	{
+			error("You need to have on object selected");
+					
+			
+		
+	}
+		
+}
+
+test(20,1,25,0,360,0,50,3,6)
