@@ -1,0 +1,75 @@
+getAttr "pCube1.translateX";
+getAttr "pCube1.translateY";
+getAttr "pCube1.translateZ";
+// Store 
+
+getAttr "pSphere1.translateX";
+getAttr "pSphere1.translateY";
+getAttr "pSphere1.translateZ";
+
+setAttr "pSphere1.translateX" 1;
+
+spaceLocator -p 0 0 0;
+
+
+
+get attribute world Location of XYZ of both objects..
+DO math .. add the X's together then Divide by 2.. DO for Y and Z..
+create a locator and the mid point by using that math to set those numbers at that location..
+
+
+getAttr "pCube1.translateX";
+getAttr "pCube1.translateY";
+getAttr "pCube1.translateZ";
+
+//Store x location as X1 Location Store Y1 location Store Z1 location
+
+getAttr "pSphere1.translateX";
+getAttr "pSphere1.translateY";
+getAttr "pSphere1.translateZ";
+
+//Store x location as X2 Location Store Y2 location Store Z2 location
+
+// Take X1 + X2 /2 = SLX
+// Y1 + Y2 /2 =SPY
+// Z1 + Z2 /2 = SPZ
+
+setAttr "pSphere1.translateX" 1;
+
+spaceLocator -p 0 0 0;
+// SetAttr spaceLocator -p SLX SLY SLZ;
+
+
+
+
+//////////////////////////////////////////////////
+
+getAttr "pCube1.translateX";
+getAttr "pCube1.translateY";
+getAttr "pCube1.translateZ";
+
+//Store x location as X1 Location Store Y1 location Store Z1 location
+
+
+
+
+getAttr "pSphere1.translateX";
+getAttr "pSphere1.translateY";
+getAttr "pSphere1.translateZ";
+
+//Store x location as X2 Location Store Y2 location Store Z2 location
+
+// Take X1 + X2 /2 = SLX
+// Y1 + Y2 /2 =SPY
+// Z1 + Z2 /2 = SPZ
+
+float $MidX= $X1 + X2 /2;
+float $MidY= $Y1 + Y2 /2;
+float $MidZ= $Z1 + Z2 /2;
+
+setAttr "pSphere1.translateX" 1;
+
+spaceLocator -p 0 0 0;
+// SetAttr spaceLocator -p SLX SLY SLZ;
+
+setAttr "spaceLocator.translation" $MidX $MidY $MidZ;

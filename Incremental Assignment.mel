@@ -1,0 +1,38 @@
+proc RenameIncremental(string $name)
+{
+	string $tokens[];
+	string $sels[];
+	
+	tokenize $name "#" $tokens; 
+	
+	$sels = `ls -sl`;
+	
+	if (size($tokens) !=2)
+		error("Input string must be in the form \"Prefix_###_Suffix\"");
+	
+	int $digitsDelimiters = size($name) - size($tokens[0]) - size($tokens[1]);
+	
+	for ($i=0; $i<size($sels); $i++)
+	{
+		int $digitsIter = `size ((string)($i+1))`;
+		int $numPads = $digitsDelimiters - $digitsIter;
+		string $pad = "";
+		
+		for($j=0; $j<$numPads; $j++)
+		{
+			$pad = $pad + "0";
+		}
+		
+		string $newName = $tokens[0] + $pad + ($i + 1) + $tokens[1];
+		rename $sels [$i] $newName;
+		
+		
+	
+	}
+
+}
+RenameIncremental("Arm_###_Jnt");
+
+
+
+
