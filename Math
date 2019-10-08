@@ -1,0 +1,16 @@
+float $a = 10;
+float $b = 6;
+
+print ($a + "+" $b + "=" + Add($a, $b));
+
+
+
+proc float add(float $num1, float $num2)
+{
+	float $total;
+	$total = $num1 + $num2;
+	
+	return $total;
+}
+
+add (3,6)
