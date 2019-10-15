@@ -1,0 +1,51 @@
+proc float Add(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 + $num2;
+
+    return $total;
+}
+
+Add (3,6);
+
+
+
+proc float Sub(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 - $num2;
+
+    return $total;
+}
+
+Sub (3,6);
+
+proc float Sub(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 - $num2;
+
+    return $total;
+}
+
+Sub (3,6);
+
+proc float Div(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 / $num2;
+
+    return $total;
+}
+
+Div (3,6);
+
+proc float Mult(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 * $num2;
+
+    return $total;
+}
+
+Mult (3,6);
