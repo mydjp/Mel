@@ -1,0 +1,60 @@
+proc Calc(int $mathType, float $num1, float $num2)
+{
+	if($mathType==0)
+	{
+		print ($num1 + "+" + $num2 + "=");
+		print (Add ($num1,$num2));
+		
+	}
+	if($mathType==1)
+	{
+		print ($num1 + "-" + $num2 + "=");
+		print (Sub ($num1,$num2));
+	}
+	if($mathType==2)
+	{
+		print ($num1 + "/" + $num2 + "=");
+		print (Div ($num1,$num2));
+	}
+	if($mathType==3)
+	{
+		print ($num1 + "*" + $num2 + "=");
+		print (Mult ($num1,$num2));
+	}
+}
+proc float Add(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 + $num2;
+
+    return $total;
+}
+
+proc float Sub(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 - $num2;
+
+    return $total;
+}
+
+
+proc float Div(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 / $num2;
+
+    return $total;
+}
+
+
+proc float Mult(float $num1, float $num2)
+{
+    float $total;
+    $total = $num1 * $num2;
+
+    return $total;
+}
+
+
+Calc (3,10,20)
