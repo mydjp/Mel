@@ -1,0 +1,50 @@
+import maya.cmds as cmds
+
+class Toolbox():
+   def __init__(self):
+       self.window_name = "dpToolbox"
+   
+   def create(self):
+       self.delete()
+       
+       self.window_name = cmds.window(self.window_name)
+       self.m_column = cmds.columnLayout(p=self.window_name, adj=True)
+       cmds.button(label='MyButton'
+                   label='MyButton',
+                   c=lambda *args: cmds.polySphere(r=2)
+       cmds.button(label='yellow'
+                   label='yellow',
+                   c=lambda *args: self.controlControl('yellow')
+       cmds.button(label='red'
+                   label='red',
+                   c=lambda *args: self.controlControl('red')
+       self.color = cmds.textField(p=self.m_column)
+       cmds.button(p=self.m_column,
+                   label='Change Color',
+                   c=lambda *args: self.colorbtn
+       cmds.button(p=self.m_column,
+                   label='Select everything ever',
+                   command=lambda *args: self.selectBtn())
+       cmds.button(p=self.m_column,
+                   label='Ball',
+                   command=lambda *args: self.ballBtn())
+                   
+       
+       cmds.showWIndow(self.window_name)
+       
+       
+   def delete(self):
+       if cmds.window(self.window_name, exists=True):
+           cmds.deleteUI(self.window_name)
+           
+   def selectBtn(self):
+       from tools
+       tools.select_all()
+           
+   def colorBtn(self):
+       value = cmds.textField(self.color, q=True, text=True)
+       self.colorControl(value)
+   
+
+myTool = Toolbox()
+myTool.create()
